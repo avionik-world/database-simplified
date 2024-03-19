@@ -20,7 +20,7 @@ allprojects {
         mavenCentral()
 
         // avionik-world repositories
-        maven("https://maven.pkg.github.com/avionik-world/config-kit")
+        maven("https://maven.pkg.github.com/avionik-world/config-kit/")
 
         // minecraft repositories
         maven("https://repo.papermc.io/repository/maven-public/")
