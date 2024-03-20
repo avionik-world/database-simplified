@@ -13,10 +13,12 @@ dependencies {
 
 signing {
     useGpgCmd()
-    sign(configurations.archives.get())
+    sign(publishing.publications)
 }
 
 centralPortal {
+    name = "database-simplified-kit"
+
     username = project.findProperty("sonatypeUsername") as String
     password = project.findProperty("sonatypePassword") as String
 
