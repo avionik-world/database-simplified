@@ -3,7 +3,6 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     kotlin("jvm") version "1.9.22"
-    `maven-publish`
 }
 
 allprojects {
@@ -18,9 +17,6 @@ allprojects {
 
     repositories {
         mavenCentral()
-
-        // avionik-world repositories
-        maven("https://maven.pkg.github.com/avionik-world/config-kit/")
 
         // minecraft repositories
         maven("https://repo.papermc.io/repository/maven-public/")

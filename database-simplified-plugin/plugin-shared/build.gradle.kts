@@ -4,7 +4,7 @@ plugins {
 
 dependencies {
     // avionik dependencies
-    compileOnly("world.avionik:config-kit:1.0.1")
+    compileOnly("world.avionik:config-kit:1.0.2")
 
     // database-simplified dependencies
     api(project(":database-simplified-kit"))

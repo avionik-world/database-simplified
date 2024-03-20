@@ -5,15 +5,6 @@ Here you can easily set up and use Morphia and Jedis.
 
 ### Maven
 ```xml
-<repositories>
-  <repository>
-     <id>github</id>
-     <url>https://maven.pkg.github.com/avionik-world/database-simplified</url>
-   </repository>
-</repositories>
-```
-
-```xml
 <dependencies>
  <dependency>
     <groupId>world.avionik</groupId>
@@ -25,12 +16,6 @@ Here you can easily set up and use Morphia and Jedis.
 ```
 
 ### Gradle
-```groovy
-repositories {
-    maven { url = 'https://maven.pkg.github.com/avionik-world/database-simplified' }
-}
-```
-
 ```groovy
 dependencies {
     compileOnly 'world.avionik:database-simplified:1.0.1'

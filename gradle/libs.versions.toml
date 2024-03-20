@@ -1,0 +1,5 @@
+[versions]
+sonatypeCentralPortalPublisher = "1.1.1"
+
+[plugins]
+sonatypeCentralPortalPublisher = { id = "net.thebugmc.gradle.sonatype-central-portal-publisher", version.ref = "sonatypeCentralPortalPublisher" }
