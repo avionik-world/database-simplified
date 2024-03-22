@@ -1,0 +1,9 @@
+name: database-simplified
+version: 1.0.1
+api-version: 1.19
+website: github.com/avionik-world
+authors:
+  - Avionik
+  - MrManHD
+
+main:  world.avionik.database.simplified.plugin.LimboPlugin

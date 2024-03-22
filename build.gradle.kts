@@ -18,10 +18,14 @@ allprojects {
     repositories {
         mavenCentral()
 
+        // jitpack repositories
+        maven("https://jitpack.io/")
+
         // minecraft repositories
         maven("https://repo.papermc.io/repository/maven-public/")
         maven("https://oss.sonatype.org/content/repositories/central")
         maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+        maven("https://repo.loohpjames.com/repository/")
 
         // simplecloud repository
         maven("https://repo.thesimplecloud.eu/artifactory/list/gradle-release-local/")

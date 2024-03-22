@@ -18,3 +18,5 @@ include("database-simplified-plugin:plugin-spigot")
 findProject(":database-simplified-plugin:plugin-spigot")?.name = "plugin-spigot"
 include("database-simplified-plugin:plugin-shared")
 findProject(":database-simplified-plugin:plugin-shared")?.name = "plugin-shared"
+include("database-simplified-plugin:plugin-limbo")
+findProject(":database-simplified-plugin:plugin-limbo")?.name = "plugin-limbo"
