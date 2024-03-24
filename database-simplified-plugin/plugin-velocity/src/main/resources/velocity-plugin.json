@@ -1,0 +1,11 @@
+{
+  "id": "database-simplified",
+  "name": "database-simplified",
+  "version": "1.0.1",
+  "authors": [
+    "Avionik",
+    "MrManHD"
+  ],
+  "dependencies": [],
+  "main": "world.avionik.database.simplified.plugin.VelocityPlugin"
+}
