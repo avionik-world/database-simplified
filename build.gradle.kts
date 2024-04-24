@@ -8,7 +8,7 @@ plugins {
 
 allprojects {
     group = "world.avionik"
-    version = "1.0.1"
+    version = "1.0.2"
 
     apply {
         plugin("org.jetbrains.kotlin.jvm")
@@ -38,6 +38,7 @@ subprojects {
 
         // database dependencies
         api("redis.clients:jedis:5.1.0")
+        api("com.arangodb:arangodb-java-driver:7.6.0")
         api("dev.morphia.morphia:morphia-core:2.3.2")
     }
 

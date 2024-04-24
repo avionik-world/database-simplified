@@ -1,5 +1,6 @@
 package world.avionik.database.simplified
 
+import com.arangodb.ArangoDB
 import com.mongodb.client.MongoClient
 import dev.morphia.Datastore
 import dev.morphia.Morphia
@@ -11,6 +12,7 @@ import java.lang.IllegalStateException
  */
 
 class DatabaseSimplifiedKit(
+    private val arangoDB: ArangoDB?,
     private val jedisPool: JedisPool?,
     private val mongoClient: MongoClient?
 ) {
@@ -38,6 +40,14 @@ class DatabaseSimplifiedKit(
      */
     fun getJedisPool(): JedisPool {
         return this.jedisPool ?: throw IllegalStateException("No jedis database has been set up")
+    }
+
+    /**
+     * Gets the created arangodb
+     * @return arango instance
+     */
+    fun getArangoDB(): ArangoDB {
+        return this.arangoDB ?: throw IllegalStateException("No arangoDB database has been set up")
     }
 
     companion object {

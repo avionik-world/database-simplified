@@ -11,6 +11,7 @@ import world.avionik.database.simplified.shared.ConfigurationType
 class DatabaseConfig(
     val enableMorphia: Boolean,
     val enableJedis: Boolean,
+    val enableArango: Boolean,
     val configurationType: ConfigurationType
 ) {
 
@@ -19,6 +20,7 @@ class DatabaseConfig(
             return DatabaseConfig(
                 enableMorphia = true,
                 enableJedis = true,
+                enableArango = true,
                 configurationType = ConfigurationType.CONFIG
             )
         }

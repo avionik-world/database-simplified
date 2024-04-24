@@ -1,8 +1,10 @@
 package world.avionik.database.simplified
 
+import com.arangodb.ArangoDB
 import com.mongodb.client.MongoClient
 import redis.clients.jedis.JedisPool
 import redis.clients.jedis.JedisPoolConfig
+import world.avionik.database.simplified.arango.ArangoConfiguration
 import world.avionik.database.simplified.jedis.JedisConfiguration
 import world.avionik.database.simplified.morphia.MorphiaClientFactory
 
@@ -12,6 +14,7 @@ import world.avionik.database.simplified.morphia.MorphiaClientFactory
 
 class DatabaseConfigurator {
 
+    private var arangoDB: ArangoDB? = null
     private var mongoClient: MongoClient? = null
     private var jedisPool: JedisPool? = null
 
@@ -35,8 +38,19 @@ class DatabaseConfigurator {
         return this
     }
 
+    /**
+     * Sets the arango database
+     * @param configuration the arango configuration
+     * @return configurator instance
+     */
+    fun withArango(configuration: ArangoConfiguration): DatabaseConfigurator {
+        this.arangoDB = configuration.createArango()
+        return this
+    }
+
     fun start(): DatabaseSimplifiedKit {
         return DatabaseSimplifiedKit(
+            this.arangoDB,
             this.jedisPool,
             this.mongoClient
         )

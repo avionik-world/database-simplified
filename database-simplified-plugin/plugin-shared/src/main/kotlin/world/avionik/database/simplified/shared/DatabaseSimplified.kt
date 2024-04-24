@@ -22,6 +22,8 @@ object DatabaseSimplified {
             configuration.withMorphia(configurationType.getMorphiaSettings())
         if (databaseConfig.enableJedis)
             configuration.withJedis(configurationType.getJedisSettings())
+        if (databaseConfig.enableArango)
+            configuration.withArango(configurationType.getArangoSettings())
 
         configuration.start()
     }
