@@ -9,7 +9,7 @@ Here you can easily set up and use Morphia and Jedis.
  <dependency>
     <groupId>world.avionik</groupId>
     <artifactId>database-simplified</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
     <scope>provided</scope>
   </dependency>
 </dependencies>
@@ -18,7 +18,7 @@ Here you can easily set up and use Morphia and Jedis.
 ### Gradle
 ```groovy
 dependencies {
-    compileOnly 'world.avionik:database-simplified:1.0.1'
+    compileOnly 'world.avionik:database-simplified:1.0.3'
 }
 ```
 
@@ -29,6 +29,7 @@ There are two different ways to enter your sensitive data during setup. You can 
 DatabaseSimplifiedKit.createConfiguration()
     .withMorphia(MorphiaSettings.fromConfig()) // Of course you can also use fromEnv() here
     .withJedis(JedisSettings.fromEnv()) // Of course you can also use fromConfig() here
+    .withArango(ArangoSettings.fromKubeSecret()) // Of course you can also use fromEnv() here
     .start()
 ```
 
