@@ -8,7 +8,7 @@ plugins {
 
 allprojects {
     group = "world.avionik"
-    version = "1.0.3"
+    version = "1.0.4"
 
     apply {
         plugin("org.jetbrains.kotlin.jvm")
