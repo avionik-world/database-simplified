@@ -9,7 +9,7 @@ Here you can easily set up and use ArangoDB, Morphia and Jedis.
  <dependency>
     <groupId>world.avionik</groupId>
     <artifactId>database-simplified</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <scope>provided</scope>
   </dependency>
 </dependencies>
@@ -18,7 +18,7 @@ Here you can easily set up and use ArangoDB, Morphia and Jedis.
 ### Gradle
 ```groovy
 dependencies {
-    compileOnly 'world.avionik:database-simplified:1.0.3'
+    compileOnly 'world.avionik:database-simplified:1.0.4'
 }
 ```
 
