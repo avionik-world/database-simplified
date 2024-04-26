@@ -1,5 +1,5 @@
 # Database Simplified 🤙
-Here you can easily set up and use Morphia and Jedis.
+Here you can easily set up and use ArangoDB, Morphia and Jedis.
 
 ## Using Database Simplified in your plugin
 
