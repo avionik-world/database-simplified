@@ -26,6 +26,20 @@ enum class ConfigurationType {
         }
     },
 
+    KUBE_SECRET {
+        override fun getMorphiaSettings(): String {
+            return MorphiaSettings.fromKubeSecret()
+        }
+
+        override fun getJedisSettings(): JedisConfiguration {
+            return JedisSettings.fromKubeSecret()
+        }
+
+        override fun getArangoSettings(): ArangoConfiguration {
+            return ArangoSettings.fromKubeSecret()
+        }
+    },
+
     ENV {
         override fun getMorphiaSettings(): String {
             return MorphiaSettings.fromEnv()
