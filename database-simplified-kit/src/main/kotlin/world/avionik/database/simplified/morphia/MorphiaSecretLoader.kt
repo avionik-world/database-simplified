@@ -1,6 +1,8 @@
 package world.avionik.database.simplified.morphia
 
 import world.avionik.database.simplified.kubernetes.KubernetesSecrets
+import java.util.*
+import kotlin.collections.HashMap
 
 /**
  * @author Niklas Nieberler
@@ -12,7 +14,7 @@ class MorphiaSecretLoader(
 
     private val secretName = "morphia-secret"
     private val defaultSecrets = hashMapOf(
-        Pair("connectionString", "here"),
+        Pair("connectionString", ""),
     )
 
     private fun createSecret(): HashMap<String, String> {
@@ -26,7 +28,12 @@ class MorphiaSecretLoader(
 
     fun get(): String {
         val secrets = KubernetesSecrets.getSecret(this.namespace, this.secretName)?.data ?: createSecret()
-        return secrets["connectionString"] ?: throw NullPointerException("failed to find connectionString")
+        return secrets["connectionString"]?.decodeBase64()
+            ?: throw NullPointerException("failed to find connectionString")
+    }
+
+    private fun String.decodeBase64(): String {
+        return String(Base64.getDecoder().decode(this))
     }
 
 }

@@ -1,6 +1,8 @@
 package world.avionik.database.simplified.arango
 
 import world.avionik.database.simplified.kubernetes.KubernetesSecrets
+import java.util.*
+import kotlin.collections.HashMap
 
 /**
  * @author Niklas Nieberler
@@ -12,9 +14,9 @@ class ArangoSecretLoader(
 
     private val secretName = "arango-secret"
     private val defaultSecrets = hashMapOf(
-        Pair("host", "127.0.0.1"),
-        Pair("port", "127"),
-        Pair("password", "password"),
+        Pair("host", ""),
+        Pair("port", ""),
+        Pair("password", ""),
     )
 
     private fun createSecret(): HashMap<String, String> {
@@ -29,10 +31,14 @@ class ArangoSecretLoader(
     fun get(): ArangoConfiguration {
         val secrets = KubernetesSecrets.getSecret(this.namespace, this.secretName)?.data ?: createSecret()
         return ArangoConfiguration(
-            secrets["host"] ?: throw NullPointerException("failed to find host"),
-            secrets["port"]?.toInt() ?: throw NullPointerException("failed to find port"),
-            secrets["password"] ?: throw NullPointerException("failed to find password"),
+            secrets["host"]?.decodeBase64() ?: throw NullPointerException("failed to find host"),
+            secrets["port"]?.decodeBase64()?.toInt() ?: throw NullPointerException("failed to find port"),
+            secrets["password"]?.decodeBase64() ?: throw NullPointerException("failed to find password"),
         )
+    }
+
+    private fun String.decodeBase64(): String {
+        return String(Base64.getDecoder().decode(this))
     }
 
 }
