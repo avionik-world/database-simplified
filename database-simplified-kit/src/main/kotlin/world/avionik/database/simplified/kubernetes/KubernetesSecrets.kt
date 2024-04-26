@@ -11,6 +11,8 @@ import io.fabric8.kubernetes.client.KubernetesClientBuilder
 
 object KubernetesSecrets {
 
+    val namespace = KubernetesClientBuilder().build().namespace
+
     fun createSecret(namespace: String, secretName: String, secrets: Map<String, String>) {
         val secret = Secret()
         secret.metadata = ObjectMetaBuilder().withName(secretName).build()

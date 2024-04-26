@@ -47,7 +47,7 @@ object JedisSettings {
      * @param namespace where the secret is stored
      * @return configuration from the config
      */
-    fun fromKubeSecret(namespace: String = "database"): JedisConfiguration {
+    fun fromKubeSecret(namespace: String = KubernetesSecrets.namespace): JedisConfiguration {
         return JedisSecretLoader(namespace).get()
     }
 

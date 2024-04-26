@@ -1,6 +1,7 @@
 package world.avionik.database.simplified.arango
 
 import world.avionik.database.simplified.arango.config.ArangoConfigLoader
+import world.avionik.database.simplified.kubernetes.KubernetesSecrets
 
 /**
  * @author Niklas Nieberler
@@ -46,7 +47,7 @@ object ArangoSettings {
      * @param namespace where the secret is stored
      * @return configuration from the config
      */
-    fun fromKubeSecret(namespace: String = "database"): ArangoConfiguration {
+    fun fromKubeSecret(namespace: String = KubernetesSecrets.namespace): ArangoConfiguration {
         return ArangoSecretLoader(namespace).get()
     }
 

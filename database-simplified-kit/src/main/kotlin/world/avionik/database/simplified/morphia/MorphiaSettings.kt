@@ -1,5 +1,6 @@
 package world.avionik.database.simplified.morphia
 
+import world.avionik.database.simplified.kubernetes.KubernetesSecrets
 import world.avionik.database.simplified.morphia.config.MorphiaConfigLoader
 
 /**
@@ -32,7 +33,7 @@ object MorphiaSettings {
      * @param namespace where the secret is stored
      * @return configuration from the config
      */
-    fun fromKubeSecret(namespace: String = "database"): String {
+    fun fromKubeSecret(namespace: String = KubernetesSecrets.namespace): String {
         return MorphiaSecretLoader(namespace).get()
     }
 
