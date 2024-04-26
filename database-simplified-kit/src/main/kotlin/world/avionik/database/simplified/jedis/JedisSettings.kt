@@ -1,6 +1,7 @@
 package world.avionik.database.simplified.jedis
 
 import world.avionik.database.simplified.jedis.config.JedisConfigLoader
+import world.avionik.database.simplified.kubernetes.KubernetesSecrets
 
 /**
  * @author Niklas Nieberler
@@ -39,6 +40,15 @@ object JedisSettings {
             jedisConfig.port,
             jedisConfig.password
         )
+    }
+
+    /**
+     * Gets the jedis configuration from the kubernetes secrets
+     * @param namespace where the secret is stored
+     * @return configuration from the config
+     */
+    fun fromKubeSecret(namespace: String = "database"): JedisConfiguration {
+        return JedisSecretLoader(namespace).get()
     }
 
 }

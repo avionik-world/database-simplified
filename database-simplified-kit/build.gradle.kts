@@ -7,6 +7,9 @@ dependencies {
     // avionik dependencies
     compileOnly("world.avionik:config-kit:1.0.2")
 
+    // kubernetes dependencies
+    compileOnly("io.fabric8:kubernetes-client:6.12.1")
+
     // simplecloud dependencies
     compileOnly("eu.thesimplecloud.jsonlib:json-lib:1.0.10")
 }

@@ -27,4 +27,13 @@ object MorphiaSettings {
         return morphiaConfig.connectionString
     }
 
+    /**
+     * Gets the connection string from the kubernetes secrets
+     * @param namespace where the secret is stored
+     * @return configuration from the config
+     */
+    fun fromKubeSecret(namespace: String = "database"): String {
+        return MorphiaSecretLoader(namespace).get()
+    }
+
 }

@@ -1,6 +1,8 @@
 package world.avionik.database.simplified.arango
 
 import world.avionik.database.simplified.arango.config.ArangoConfigLoader
+import world.avionik.database.simplified.jedis.JedisConfiguration
+import world.avionik.database.simplified.jedis.JedisSecretLoader
 
 /**
  * @author Niklas Nieberler
@@ -39,6 +41,15 @@ object ArangoSettings {
             arangoConfig.port,
             arangoConfig.password
         )
+    }
+
+    /**
+     * Gets the arango configuration from the kubernetes secrets
+     * @param namespace where the secret is stored
+     * @return configuration from the config
+     */
+    fun fromKubeSecret(namespace: String = "database"): ArangoConfiguration {
+        return ArangoSecretLoader(namespace).get()
     }
 
 }
