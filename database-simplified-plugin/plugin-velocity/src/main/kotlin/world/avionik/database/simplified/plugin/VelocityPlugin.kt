@@ -21,8 +21,7 @@ class VelocityPlugin @Inject constructor(
     val logger: Logger,
 ) {
 
-    @Subscribe
-    fun handleInitialize(event: ProxyInitializeEvent) {
+    init {
         DatabaseSimplified.create()
     }
 
