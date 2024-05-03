@@ -12,6 +12,7 @@ class DatabaseConfig(
     val enableMorphia: Boolean,
     val enableJedis: Boolean,
     val enableArango: Boolean,
+    val enableRabbitMQ: Boolean,
     val configurationType: ConfigurationType
 ) {
 
@@ -21,6 +22,7 @@ class DatabaseConfig(
                 enableMorphia = true,
                 enableJedis = true,
                 enableArango = true,
+                enableRabbitMQ = true,
                 configurationType = ConfigurationType.CONFIG
             )
         }

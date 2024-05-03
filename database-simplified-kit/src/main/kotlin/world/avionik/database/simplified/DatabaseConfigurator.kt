@@ -2,11 +2,13 @@ package world.avionik.database.simplified
 
 import com.arangodb.ArangoDB
 import com.mongodb.client.MongoClient
+import com.rabbitmq.client.Connection
 import redis.clients.jedis.JedisPool
 import redis.clients.jedis.JedisPoolConfig
 import world.avionik.database.simplified.arango.ArangoConfiguration
 import world.avionik.database.simplified.jedis.JedisConfiguration
 import world.avionik.database.simplified.morphia.MorphiaClientFactory
+import world.avionik.database.simplified.rabbitmq.RabbitMQConfiguration
 
 /**
  * @author Niklas Nieberler
@@ -17,6 +19,7 @@ class DatabaseConfigurator {
     private var arangoDB: ArangoDB? = null
     private var mongoClient: MongoClient? = null
     private var jedisPool: JedisPool? = null
+    private var rabbitConnection: Connection? = null
 
     /**
      * Sets the morphia database
@@ -48,11 +51,22 @@ class DatabaseConfigurator {
         return this
     }
 
+    /**
+     * Sets the rabbitmq database
+     * @param configuration the rabbitmq configuration
+     * @return configurator instance
+     */
+    fun withRabbitMQ(configuration: RabbitMQConfiguration): DatabaseConfigurator {
+        this.rabbitConnection = configuration.createConnection()
+        return this
+    }
+
     fun start(): DatabaseSimplifiedKit {
         return DatabaseSimplifiedKit(
             this.arangoDB,
             this.jedisPool,
-            this.mongoClient
+            this.mongoClient,
+            this.rabbitConnection
         )
     }
 

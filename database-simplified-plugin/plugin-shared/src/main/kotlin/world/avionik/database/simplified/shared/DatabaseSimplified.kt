@@ -24,6 +24,8 @@ object DatabaseSimplified {
             configuration.withJedis(configurationType.getJedisSettings())
         if (databaseConfig.enableArango)
             configuration.withArango(configurationType.getArangoSettings())
+        if (databaseConfig.enableRabbitMQ)
+            configuration.withRabbitMQ(configurationType.getRabbitMQSettings())
 
         configuration.start()
     }

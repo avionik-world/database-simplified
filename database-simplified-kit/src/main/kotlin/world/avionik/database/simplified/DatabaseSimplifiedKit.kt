@@ -2,6 +2,7 @@ package world.avionik.database.simplified
 
 import com.arangodb.ArangoDB
 import com.mongodb.client.MongoClient
+import com.rabbitmq.client.Connection
 import dev.morphia.Datastore
 import dev.morphia.Morphia
 import redis.clients.jedis.JedisPool
@@ -14,7 +15,8 @@ import java.lang.IllegalStateException
 class DatabaseSimplifiedKit(
     private val arangoDB: ArangoDB?,
     private val jedisPool: JedisPool?,
-    private val mongoClient: MongoClient?
+    private val mongoClient: MongoClient?,
+    private var rabbitConnection: Connection?
 ) {
 
     init {
@@ -48,6 +50,14 @@ class DatabaseSimplifiedKit(
      */
     fun getArangoDB(): ArangoDB {
         return this.arangoDB ?: throw IllegalStateException("No arangoDB database has been set up")
+    }
+
+    /**
+     * Gets the created rabbitmq connection
+     * @return rabbitmq instance
+     */
+    fun getRabbitConnection(): Connection {
+        return this.rabbitConnection ?: throw IllegalStateException("No rabbitMQ database has been set up")
     }
 
     companion object {
