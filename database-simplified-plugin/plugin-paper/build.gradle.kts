@@ -9,5 +9,5 @@ dependencies {
 }
 
 tasks.named("shadowJar", ShadowJar::class) {
-    archiveFileName = "database-simplified-spigot-${project.version}.jar"
+    archiveFileName = "database-simplified-paper-${project.version}.jar"
 }
