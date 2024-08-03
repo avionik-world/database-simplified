@@ -4,8 +4,8 @@ dependencies {
     // database-simplified dependencies
     api(project(":database-simplified-plugin:plugin-shared"))
 
-    // spigot dependencies
-    compileOnly("org.spigotmc:spigot-api:1.20.2-R0.1-SNAPSHOT")
+    // paper dependencies
+    compileOnly("io.papermc.paper:paper-api:1.21-R0.1-SNAPSHOT")
 }
 
 tasks.named("shadowJar", ShadowJar::class) {

@@ -7,7 +7,7 @@ import world.avionik.database.simplified.shared.DatabaseSimplified
  * @author Niklas Nieberler
  */
 
-class SpigotPlugin : JavaPlugin() {
+class PaperPlugin : JavaPlugin() {
 
     override fun onLoad() {
         DatabaseSimplified.create()

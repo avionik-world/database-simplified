@@ -1,0 +1,14 @@
+name: database-simplified
+version: '1.0.1'
+api-version: '1.21'
+website: github.com/avionik-world
+authors:
+  - Avionik
+  - MrManHD
+
+main: world.avionik.database.simplified.plugin.PaperPlugin
+
+dependencies:
+  server:
+    paper-dependency-loader:
+      load: BEFORE

@@ -14,8 +14,8 @@ include("database-simplified-kit")
 include("database-simplified-plugin")
 include("database-simplified-plugin:plugin-velocity")
 findProject(":database-simplified-plugin:plugin-velocity")?.name = "plugin-velocity"
-include("database-simplified-plugin:plugin-spigot")
-findProject(":database-simplified-plugin:plugin-spigot")?.name = "plugin-spigot"
+include("database-simplified-plugin:plugin-paper")
+findProject(":database-simplified-plugin:plugin-paper")?.name = "plugin-paper"
 include("database-simplified-plugin:plugin-shared")
 findProject(":database-simplified-plugin:plugin-shared")?.name = "plugin-shared"
 include("database-simplified-plugin:plugin-limbo")
