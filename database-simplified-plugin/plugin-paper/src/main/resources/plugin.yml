@@ -7,8 +7,3 @@ authors:
   - MrManHD
 
 main: world.avionik.database.simplified.plugin.PaperPlugin
-
-dependencies:
-  server:
-    paper-dependency-loader:
-      load: BEFORE
