@@ -6,4 +6,4 @@ authors:
   - Avionik
   - MrManHD
 
-main: world.avionik.database.simplified.plugin.PaperPlugin
+main: world.avionik.database.simplified.plugin.SpigotPlugin
